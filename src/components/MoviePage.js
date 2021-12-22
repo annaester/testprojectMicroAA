@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { API_MOVIE_DETAIL } from "utils/urls";
+import { API_MOVIE_TRAILER } from "utils/urls";
 
 const MoviePage = () => {
   const [moviePage, setMoviePage] = useState({});
+  const [movieTrailer, setMovieTrailer] = useState({});
   const { id } = useParams();
 
   // const params = useParams();
@@ -13,7 +15,15 @@ const MoviePage = () => {
     fetch(API_MOVIE_DETAIL(id))
       .then((res) => res.json())
       .then((data) => setMoviePage(data));
-  });
+  }, [id]);
+
+  useEffect(() => {
+    fetch(API_MOVIE_TRAILER(id))
+      .then((res) => res.json())
+      .then((data) => setMovieTrailer(data));
+  }, []);
+
+  // console.log(movieTrailer);
 
   return (
     <>
@@ -34,6 +44,21 @@ const MoviePage = () => {
           )}{" "}
         </p>
         <p>Length: {moviePage.runtime} min</p>
+        {/* <div>
+          {movieTrailer.map((trailer) => (
+            <p>{trailer.key}</p>
+          ))}
+        </div> */}
+
+        {/* <video width="750" height="500" controls> */}
+        <a
+          href={`https://www.youtube.com/watch?v=${movieTrailer.key}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Watch trailers
+        </a>
+        {/* </video> */}
       </div>
     </>
   );
