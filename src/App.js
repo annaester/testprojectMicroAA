@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { API_URL_POPULAR } from "utils/urls";
+import Header from "components/Header";
 import FirstPage from "components/FirstPage";
 import MoviePage from "components/MoviePage";
-import { API_URL_POPULAR } from "utils/urls";
 
 export const App = () => {
   const [firstPage, setFirstPage] = useState([]);
@@ -13,10 +15,12 @@ export const App = () => {
   }, []);
 
   return (
-    <div>
-      Find me in src/app.js!
-      <FirstPage movies={firstPage} />
-      <MoviePage />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<FirstPage movies={firstPage} />} />
+        <Route path="/moviepage/:id" element={<MoviePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
