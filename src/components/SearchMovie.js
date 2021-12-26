@@ -75,21 +75,30 @@ const SearchMovie = () => {
         </button>
       </form>
       <BigBox>
-        {foundMovie.map((movie) => (
-          <MovieBox key={movie.id}>
-            <Link to={`/moviepage/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <InfoBox>
-                <h1>{movie.original_title}</h1>
-                <p>Release: {movie.release_date}</p>
-                <p>IMDB rating: {movie.vote_average}</p>
-              </InfoBox>
-            </Link>
-          </MovieBox>
-        ))}
+        {foundMovie
+          .filter((movie) => movie.poster_path)
+          .sort(
+            (a, b) => Date.parse(b.release_date) - Date.parse(a.release_date)
+          )
+          .map((movie) => (
+            <MovieBox key={movie.id}>
+              <Link to={`/moviepage/${movie.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                  alt={movie.title}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "../pictures/tmdblogo.svg";
+                  }}
+                />
+                <InfoBox>
+                  <h1>{movie.original_title}</h1>
+                  <p>Release: {movie.release_date}</p>
+                  <p>IMDB rating: {movie.vote_average}</p>
+                </InfoBox>
+              </Link>
+            </MovieBox>
+          ))}
       </BigBox>
     </>
   );
