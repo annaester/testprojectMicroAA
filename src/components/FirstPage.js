@@ -4,6 +4,28 @@ import styled from "styled-components";
 import SearchMovie from "./SearchMovie";
 import { BigBox, MovieBox, InfoBox } from "./Theme";
 
+const SortBox = styled.div`
+  background: #897853;
+  height: 70px;
+  display: flex;
+  align-items: center;
+`;
+
+const SortBtn = styled.button`
+  padding: 10px;
+  background: #c8eed9;
+  color: #4e3620;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  margin: 15px 10px;
+
+  :hover {
+    color: white;
+    cursor: pointer;
+  }
+`;
+
 const FirstPage = ({ movies }) => {
   const [movieList, setMovieList] = useState(movies);
 
@@ -37,11 +59,11 @@ const FirstPage = ({ movies }) => {
   return (
     <>
       <SearchMovie />
-      <div>
-        <button onClick={sortByTitle}>Sort by Title</button>
-        <button onClick={sortByDate}>Sort by Release Date</button>
-        <button onClick={sortByRating}>Sort by Rating</button>
-      </div>
+      <SortBox>
+        <SortBtn onClick={sortByTitle}>Sort by Title</SortBtn>
+        <SortBtn onClick={sortByDate}>Sort by Release Date</SortBtn>
+        <SortBtn onClick={sortByRating}>Sort by Rating</SortBtn>
+      </SortBox>
       <BigBox>
         {movies
           // .sort((a, b) => a.title.localeCompare(b.title))

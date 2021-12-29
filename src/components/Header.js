@@ -2,12 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const TopBar = styled.header`
-  background: rgb(41, 43, 42);
+  background-image: url("../pictures/cinema-unsplash.jpg");
+  background-position: center;
+  background-size: contain;
+  height: 400px;
+  //background: rgb(41, 43, 42);
   color: white;
   margin: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   h1 {
     margin: 20px, 0, 0, 0;

@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { SEARCH_URL } from "utils/urls";
 import { API_KEY } from "utils/urls";
 import { BigBox, MovieBox, InfoBox } from "./Theme";
+import styled from "styled-components";
+
+const SearchBox = styled.div`
+  background: #897853;
+  height: 70px;
+  display: flex;
+  align-items: center;
+`;
 
 const SearchMovie = () => {
   const [searchMovie, setSearchMovie] = useState("");
@@ -60,7 +68,7 @@ const SearchMovie = () => {
   // });
 
   return (
-    <>
+    <SearchBox>
       <form onSubmit={callSearchFunction}>
         <label htmlFor="search">Search movie</label>
         <input
@@ -100,7 +108,7 @@ const SearchMovie = () => {
             </MovieBox>
           ))}
       </BigBox>
-    </>
+    </SearchBox>
   );
 };
 

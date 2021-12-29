@@ -5,7 +5,7 @@ export const BigBox = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background: #f8f4e1;
   top: 0;
   right: 0;
   left: 0;
