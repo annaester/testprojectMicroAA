@@ -7,9 +7,52 @@ import styled from "styled-components";
 
 const SearchBox = styled.div`
   background: #897853;
-  height: 70px;
+  height: auto;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  text-align: right;
+
+  form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+  }
+
+  label {
+    font-weight: bold;
+    color: white;
+    margin: 5px;
+  }
+
+  input {
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    width: 200px;
+    margin: 5px;
+  }
+
+  button {
+    padding: 5px 10px;
+    background: #c8eed9;
+    color: #4e3620;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    width: 70px;
+    align: right;
+  }
+
+  button:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  img {
+    align-self: left;
+  }
 `;
 
 const SearchMovie = () => {
@@ -68,20 +111,23 @@ const SearchMovie = () => {
   // });
 
   return (
-    <SearchBox>
-      <form onSubmit={callSearchFunction}>
-        <label htmlFor="search">Search movie</label>
-        <input
-          name="search"
-          placeholder="...movie"
-          value={searchMovie}
-          onChange={(e) => setSearchMovie(e.target.value)}
-          type="text"
-        />
-        <button type="submit" value="search">
-          Search
-        </button>
-      </form>
+    <>
+      <SearchBox>
+        <img src="../pictures/tmdblogo.svg" width="70px" alt="tmdblogo" />
+        <form onSubmit={callSearchFunction}>
+          <label htmlFor="search">Search movie</label>
+          <input
+            name="search"
+            placeholder="...movie"
+            value={searchMovie}
+            onChange={(e) => setSearchMovie(e.target.value)}
+            type="text"
+          />
+          <button type="submit" value="search">
+            Search
+          </button>
+        </form>
+      </SearchBox>
       <BigBox>
         {foundMovie
           .filter((movie) => movie.poster_path)
@@ -108,7 +154,7 @@ const SearchMovie = () => {
             </MovieBox>
           ))}
       </BigBox>
-    </SearchBox>
+    </>
   );
 };
 

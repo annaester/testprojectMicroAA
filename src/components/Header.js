@@ -7,7 +7,7 @@ const TopBar = styled.header`
   background-size: contain;
   height: 400px;
   //background: rgb(41, 43, 42);
-  color: white;
+  color: #c8eed9;
   margin: 0;
   text-align: center;
   display: flex;
@@ -15,28 +15,32 @@ const TopBar = styled.header`
   align-items: center;
   justify-content: center;
 
+  div {
+    background: rgba(137, 120, 83, 0.8);
+    border-radius: 50px;
+    width: auto;
+    padding: 0 15px 20px 15px;
+  }
+
   h1 {
-    margin: 20px, 0, 0, 0;
+    margin: 10px;
     padding: 20px;
   }
 
   h2 {
-    margin: 0;
+    margin: 10px;
+    padding: 10px
     font-style: italic;
-  }
-
-  img {
-    padding: 10px;
-    align-self: end;
   }
 `;
 
 const Header = () => {
   return (
     <TopBar>
-      <h1>TMDB's </h1>
-      <h2>- most popular movies</h2>
-      <img src="../pictures/tmdblogo.svg" width="50px" alt="tmdblogo" />
+      <div>
+        <h1>TMDB's </h1>
+        <h2>most popular movies</h2>
+      </div>
     </TopBar>
   );
 };
