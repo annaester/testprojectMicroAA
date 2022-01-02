@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Header from "./Header";
 import SearchMovie from "./SearchMovie";
 import { BigBox, MovieBox, InfoBox } from "./Theme";
 
@@ -58,6 +59,7 @@ const FirstPage = ({ movies }) => {
 
   return (
     <>
+      <Header />
       <SearchMovie />
       <SortBox>
         <SortBtn onClick={sortByTitle}>Sort by Title</SortBtn>

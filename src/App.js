@@ -16,7 +16,7 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<FirstPage movies={firstPage} />} />
         <Route path="/moviepage/:id" element={<MoviePage />} />
