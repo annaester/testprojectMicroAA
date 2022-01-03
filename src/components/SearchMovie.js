@@ -10,7 +10,7 @@ const SearchBox = styled.div`
   height: auto;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 15px;
   text-align: right;
 
   form {
@@ -74,13 +74,13 @@ const SearchMovie = () => {
   // const data = await res.json();
   // console.log(data);
 
-  const handleSearchInput = (e) => {
-    setSearchMovie(e.target.value);
-  };
+  // const handleSearchInput = (e) => {
+  //   setSearchMovie(e.target.value);
+  // };
 
-  const resetInputField = () => {
-    setSearchMovie("");
-  };
+  // const resetInputField = () => {
+  //   setSearchMovie("");
+  // };
 
   const callSearchFunction = async (e) => {
     e.preventDefault();
@@ -104,11 +104,14 @@ const SearchMovie = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetch(SEARCH_URL)
-  //     .then((res) => res.json())
-  //     .then((json) => setFindMovie(json));
-  // });
+  //   useEffect(() => {
+  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchMovie}&include_adult=false`;
+
+  //     fetch(url)
+  //       .then((res) => res.json())
+  //       .then((json) => setFoundMovie(json.results))
+  //       .catch((err) => err);
+  //   });
 
   return (
     <>

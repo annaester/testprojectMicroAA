@@ -6,10 +6,10 @@ import SearchMovie from "./SearchMovie";
 import { BigBox, MovieBox, InfoBox } from "./Theme";
 
 const SortBox = styled.div`
-  background: #897853;
-  height: 70px;
+  background: #f8f4e1;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const SortBtn = styled.button`
@@ -19,7 +19,7 @@ const SortBtn = styled.button`
   font-weight: bold;
   border-radius: 50px;
   border: none;
-  margin: 15px 10px;
+  margin: 5px 10px;
 
   :hover {
     color: white;
@@ -69,12 +69,12 @@ const FirstPage = ({ movies }) => {
     <>
       <Header />
       <SearchMovie />
+      <Titel>The 20 most popular movies in the US</Titel>
       <SortBox>
         <SortBtn onClick={sortByTitle}>Sort by Title</SortBtn>
         <SortBtn onClick={sortByDate}>Sort by Release Date</SortBtn>
         <SortBtn onClick={sortByRating}>Sort by Rating</SortBtn>
       </SortBox>{" "}
-      <Titel>The top 20 movies in the US</Titel>
       <BigBox>
         {movies
           // .sort((a, b) => a.title.localeCompare(b.title))
