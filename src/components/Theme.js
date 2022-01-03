@@ -21,18 +21,15 @@ export const BigBox = styled.section`
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
   }
+
+  img:hover {
+    filter: sepia(80%);
+  }
 `;
 
 export const MovieBox = styled.div`
   position: relative;
   display: flex;
-
-  /* top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0; */
-
-  /* justify-content: center; */
 `;
 
 export const InfoBox = styled.div`

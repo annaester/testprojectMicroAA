@@ -27,6 +27,14 @@ const SortBtn = styled.button`
   }
 `;
 
+const Titel = styled.h1`
+  color: #4e3620;
+  background: #f8f4e1;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+`;
+
 const FirstPage = ({ movies }) => {
   const [movieList, setMovieList] = useState(movies);
 
@@ -65,7 +73,8 @@ const FirstPage = ({ movies }) => {
         <SortBtn onClick={sortByTitle}>Sort by Title</SortBtn>
         <SortBtn onClick={sortByDate}>Sort by Release Date</SortBtn>
         <SortBtn onClick={sortByRating}>Sort by Rating</SortBtn>
-      </SortBox>
+      </SortBox>{" "}
+      <Titel>The top 20 movies in the US</Titel>
       <BigBox>
         {movies
           // .sort((a, b) => a.title.localeCompare(b.title))
