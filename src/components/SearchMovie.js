@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { SEARCH_URL } from "utils/urls";
 import { API_KEY } from "utils/urls";
@@ -13,17 +14,35 @@ const SearchBox = styled.div`
   padding: 10px 15px;
   text-align: right;
 
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 5px;
+    background-image: url("../pictures/cinema-unsplash.jpg");
+    background-position: center;
+    background-size: contain;
+    height: 200px;
+  }
+
   form {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 5px;
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      align-items: flex-end;
+    }
   }
 
   label {
     font-weight: bold;
     color: white;
     margin: 5px;
+
+    @media (max-width: 700px) {
+      font-size: 15px;
+    }
   }
 
   input {
@@ -32,6 +51,11 @@ const SearchBox = styled.div`
     border: none;
     width: 200px;
     margin: 5px;
+
+    @media (max-width: 700px) {
+      padding: 5px;
+      text-align: right;
+    }
   }
 
   button {
@@ -43,6 +67,11 @@ const SearchBox = styled.div`
     border: none;
     width: 70px;
     align: right;
+
+    @media (max-width: 700px) {
+      margin: 5px;
+      font-size: 10px;
+    }
   }
 
   button:hover {
@@ -52,6 +81,11 @@ const SearchBox = styled.div`
 
   img {
     align-self: left;
+
+    @media (max-width: 700px) {
+      width: 40px;
+      padding: 5px;
+    }
   }
 `;
 
@@ -59,42 +93,12 @@ const SearchMovie = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [foundMovie, setFoundMovie] = useState([]);
 
-  // const query = "Jurassic ParK";
-  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}1&include_adult=false`;
-
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       console.log(json);
-  //     });
-  // });
-
-  // const res = await fetch(url);
-  // const data = await res.json();
-  // console.log(data);
-
-  // const handleSearchInput = (e) => {
-  //   setSearchMovie(e.target.value);
-  // };
-
-  // const resetInputField = () => {
-  //   setSearchMovie("");
-  // };
-
   const callSearchFunction = async (e) => {
     e.preventDefault();
     console.log("submitting");
 
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchMovie}&include_adult=false`;
 
-    // useEffect(() => {
-    //   fetch(url)
-    //     .then((res) => res.json())
-    //     .then((json) => {
-    //       console.log(json);
-    //     });
-    // });
     try {
       const res = await fetch(url);
       const data = await res.json();
@@ -103,15 +107,6 @@ const SearchMovie = () => {
       console.log(err);
     }
   };
-
-  //   useEffect(() => {
-  // const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchMovie}&include_adult=false`;
-
-  //     fetch(url)
-  //       .then((res) => res.json())
-  //       .then((json) => setFoundMovie(json.results))
-  //       .catch((err) => err);
-  //   });
 
   return (
     <>

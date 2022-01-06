@@ -6,7 +6,6 @@ const TopBar = styled.header`
   background-position: center;
   background-size: contain;
   height: 400px;
-  //background: rgb(41, 43, 42);
   color: #c8eed9;
   margin: 0;
   text-align: center;
@@ -14,6 +13,10 @@ const TopBar = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 700px) {
+    display: none;
+    }
 
   div {
     background: rgba(137, 120, 83, 0.8);

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { BigBox, MovieBox, InfoBox } from "./Theme";
 import styled from "styled-components";
 import Header from "./Header";
 import SearchMovie from "./SearchMovie";
-import { BigBox, MovieBox, InfoBox } from "./Theme";
 
 const SortBox = styled.div`
   background: #f8f4e1;
@@ -25,6 +25,12 @@ const SortBtn = styled.button`
     color: white;
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    padding: 7px;
+    margin: 5px;
+    font-size: 10px;
+  }
 `;
 
 const Titel = styled.h1`
@@ -33,6 +39,10 @@ const Titel = styled.h1`
   text-align: center;
   margin: 0;
   padding: 20px;
+
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
 `;
 
 const FirstPage = ({ movies }) => {
@@ -74,7 +84,7 @@ const FirstPage = ({ movies }) => {
         <SortBtn onClick={sortByTitle}>Sort by Title</SortBtn>
         <SortBtn onClick={sortByDate}>Sort by Release Date</SortBtn>
         <SortBtn onClick={sortByRating}>Sort by Rating</SortBtn>
-      </SortBox>{" "}
+      </SortBox>
       <BigBox>
         {movies
           // .sort((a, b) => a.title.localeCompare(b.title))

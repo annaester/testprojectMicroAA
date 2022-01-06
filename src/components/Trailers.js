@@ -10,6 +10,11 @@ const TrailerBox = styled.div`
 
   h4 {
     margin: 10px;
+
+    @media (max-width: 700px) {
+      font-size: 12px;
+      margin: 5px 10px;
+    }
   }
 `;
 

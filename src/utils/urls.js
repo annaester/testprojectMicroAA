@@ -5,5 +5,5 @@ export const API_MOVIE_DETAIL = (id) =>
 export const API_MOVIE_TRAILER = (id) =>
   `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&append_to_response=videos`;
 export const API_URL = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
-export const SEARCH_URL = (handleSearchInput) =>
-  `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${handleSearchInput}`;
+export const SEARCH_URL = (search) =>
+  `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&include_adult=false`;

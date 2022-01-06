@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const BigBox = styled.section`
@@ -16,10 +15,17 @@ export const BigBox = styled.section`
   }
 
   img {
-    /* position: relative; */
     background: #c8eed9;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+
+    @media (max-width: 700px) {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      height: 250px;
+      width: 300px;
+      object-fit: cover;
+    }
   }
 
   img:hover {
@@ -49,13 +55,27 @@ export const InfoBox = styled.div`
     opacity: 1;
   }
 
+  @media (max-width: 700px) {
+    padding: 10px 10px 15px 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
   h1 {
     margin: 0;
     padding: 5px;
+
+    @media (max-width: 700px) {
+      font-size: 18px;
+    }
   }
 
   p {
     margin: 0;
     padding: 5px;
+
+    @media (max-width: 700px) {
+      font-size: 12px;
+    }
   }
 `;
