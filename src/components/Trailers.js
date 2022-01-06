@@ -31,7 +31,7 @@ const Trailers = () => {
     fetch(API_MOVIE_TRAILER(id))
       .then((res) => res.json())
       .then((data) => setMovieTrailer(data.results));
-  }, []);
+  }, [id]);
 
   return (
     <TrailerBox>
