@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { SEARCH_URL } from "utils/urls";
 import { API_KEY } from "utils/urls";
 import { BigBox, MovieBox, InfoBox } from "./Theme";
 import styled from "styled-components";

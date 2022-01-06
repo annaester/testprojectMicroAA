@@ -19,7 +19,7 @@ const TopBar = styled.header`
     }
 
   div {
-    background: rgba(137, 120, 83, 0.8);
+    /* background: rgba(137, 120, 83, 0.8); */
     border-radius: 50px;
     width: auto;
     padding: 0 15px 20px 15px;
@@ -28,6 +28,9 @@ const TopBar = styled.header`
   h1 {
     margin: 10px;
     padding: 20px;
+    font-size: 40px;
+    text-shadow: 1px 1px #040404;
+    letter-spacing: 4px;
   }
 
   h2 {
@@ -41,8 +44,8 @@ const Header = () => {
   return (
     <TopBar>
       <div>
-        <h1>TMDB's </h1>
-        <h2>most popular movies</h2>
+        <h1>TMDB's most popular movies</h1>
+        {/* <h2></h2> */}
       </div>
     </TopBar>
   );
