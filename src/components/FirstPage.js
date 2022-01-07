@@ -46,7 +46,7 @@ const Titel = styled.h1`
 `;
 
 const FirstPage = ({ movies }) => {
-  const [movieList, setMovieList] = useState(movies);
+  const [movieList, setMovieList] = useState();
 
   const sortByTitle = () => {
     const sorted = [
@@ -55,6 +55,7 @@ const FirstPage = ({ movies }) => {
       }),
     ];
     setMovieList(sorted);
+    console.log(movieList);
   };
 
   const sortByDate = () => {
@@ -88,17 +89,17 @@ const FirstPage = ({ movies }) => {
       <BigBox>
         {movies
           // .sort((a, b) => a.title.localeCompare(b.title))
-          .map((movieList) => (
-            <MovieBox key={movieList.id}>
-              <Link to={`/moviepage/${movieList.id}`}>
+          .map((k) => (
+            <MovieBox key={k.id}>
+              <Link to={`/moviepage/${k.id}`}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w300/${movieList.poster_path}`}
-                  alt={movieList.title}
+                  src={`https://image.tmdb.org/t/p/w300/${k.poster_path}`}
+                  alt={k.title}
                 />
                 <InfoBox>
-                  <h1>{movieList.original_title}</h1>
-                  <p>Release: {movieList.release_date}</p>
-                  <p>IMDB rating: {movieList.vote_average}</p>
+                  <h1>{k.original_title}</h1>
+                  <p>Release: {k.release_date}</p>
+                  <p>IMDB rating: {k.vote_average}</p>
                 </InfoBox>
               </Link>
             </MovieBox>
