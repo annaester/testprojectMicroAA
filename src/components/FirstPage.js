@@ -87,23 +87,21 @@ const FirstPage = ({ movies }) => {
         <SortBtn onClick={sortByRating}>Sort by Rating</SortBtn>
       </SortBox>
       <BigBox>
-        {movies
-          // .sort((a, b) => a.title.localeCompare(b.title))
-          .map((k) => (
-            <MovieBox key={k.id}>
-              <Link to={`/moviepage/${k.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${k.poster_path}`}
-                  alt={k.title}
-                />
-                <InfoBox>
-                  <h1>{k.original_title}</h1>
-                  <p>Release: {k.release_date}</p>
-                  <p>IMDB rating: {k.vote_average}</p>
-                </InfoBox>
-              </Link>
-            </MovieBox>
-          ))}
+        {movies.map((k) => (
+          <MovieBox key={k.id}>
+            <Link to={`/moviepage/${k.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${k.poster_path}`}
+                alt={k.title}
+              />
+              <InfoBox>
+                <h1>{k.original_title}</h1>
+                <p>Release: {k.release_date}</p>
+                <p>IMDB rating: {k.vote_average}</p>
+              </InfoBox>
+            </Link>
+          </MovieBox>
+        ))}
       </BigBox>
     </>
   );

@@ -19,7 +19,6 @@ const TopBar = styled.header`
     }
 
   div {
-    /* background: rgba(137, 120, 83, 0.8); */
     border-radius: 50px;
     width: auto;
     padding: 0 15px 20px 15px;
@@ -45,7 +44,6 @@ const Header = () => {
     <TopBar>
       <div>
         <h1>TMDB's most popular movies</h1>
-        {/* <h2></h2> */}
       </div>
     </TopBar>
   );
